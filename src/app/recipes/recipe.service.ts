@@ -1,10 +1,11 @@
 import {Recipe} from './recipe.model';
 import {Ingredient} from '../shared/ingredient.model';
-import {Injectable} from '@angular/core';
-import {ShoppingListService} from "../shopping-list/shopping-list.service";
+import {EventEmitter, Injectable} from '@angular/core';
+import {ShoppingListService} from '../shopping-list/shopping-list.service';
 
 @Injectable()
 export class RecipeService {
+  recipeSelected = new EventEmitter<Recipe>();
   // making recipes private we disallow to access the array from the outside
   private recipes: Recipe[] = [
     new Recipe(
