@@ -10,7 +10,7 @@ import {RecipeService} from '../recipe.service';
 })
 export class RecipeEditComponent implements OnInit {
   id: number;
-  editMode: false;
+  editMode = false;
   recipeForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
