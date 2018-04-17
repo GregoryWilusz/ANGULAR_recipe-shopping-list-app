@@ -20,11 +20,20 @@ export class AuthService {
       .catch(error => console.log('error: ', error));
   }
 
+  logout() {
+    firebase.auth().signOut();
+    this.token = null;
+  }
+
   getToken() {
     firebase.auth().currentUser.getIdToken() // it's a async operation so we only return the Promise
       .then(
         (token: string) => this.token = token
       );
     return this.token;
+  }
+
+  isAuthenticated() {
+    return this.token != null;
   }
 }
